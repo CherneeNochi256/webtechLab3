@@ -23,6 +23,7 @@ body {
   background: white;
   height: 64px;
   transition: all .15s ease-in-out;
+  display: block;
 }
 
 .box::before {
@@ -75,10 +76,19 @@ header .box-title {
   display: none;
 }
 
+.box-content__text,
+.box-title {
+  font-size: 40px;
+}
+
+.box-content img {
+  cursor: pointer;
+}
+
 
 .box-close {
   position: absolute;
-  height: 64px;
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -92,14 +102,28 @@ input:checked + .box {
   box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
 }
 
+
 input:checked + .box .box-title {
   border-bottom: 1px solid rgba(0, 0, 0, .18);
 }
 
+
 input:checked + .box .box-content,
-input:checked + .box .box-close{
+input:checked + .box .box-close {
   display: inline-block;
 }
+
+
+input:hover + .box .box-content,
+input:hover + .box {
+  display: inline-block;
+}
+
+input {
+  height: 100%;
+  width: 100%;
+}
+
 
 .arrows section .box-title {
   padding-left: 44px;
@@ -119,4 +143,28 @@ input:checked + .box .box-close{
 
 input:checked + section.box .box-title:before {
   transform: rotate(90deg);
+}
+
+
+/*---------------MEDIA----------------------*/
+
+
+@media only screen and (max-width: 820px) {
+  body {
+    .box-content__text,
+    .box-title {
+      font-size: 25px;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  body {
+    .box-content__text,
+    .box-title {
+      font-size: 15px;
+    }
+
+  }
 }
